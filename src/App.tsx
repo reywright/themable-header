@@ -1,19 +1,22 @@
 import * as React from 'react';
-import './App.css';
+import Header from './Header';
+import { ThemeProvider } from 'styled-components';
 
-const logo = require('./logo.svg');
+// const logo = require('./logo.svg');
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Reactt</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <ThemeProvider theme={{ color: 'pink' }}>
+          <Header>EasyBib Redesign</Header>
+        </ThemeProvider>
+        <ThemeProvider theme={{ color: 'blue' }}>
+          <Header>Bibme</Header>
+        </ThemeProvider>
+        <ThemeProvider theme={{ color: 'green' }}>
+          <Header>Citation Machine</Header>
+        </ThemeProvider>
       </div>
     );
   }
