@@ -1,17 +1,14 @@
 import * as React from 'react';
-import Header from './components/Header';
 import { ThemeProvider } from 'styled-components';
+import { easybibTheme } from './theme';
 
-// const logo = require('./logo.svg');
-
+import EasybibHeader from './components/Header/Easybib';
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ThemeProvider theme={{ color: 'pink' }}>
-          <Header
-            left={<div>Left from Above</div>}
-          />
+        <ThemeProvider theme={easybibTheme}>
+          <EasybibHeader />
         </ThemeProvider>
         {/* <ThemeProvider theme={{ color: 'blue' }}>
           <Header>Bibme</Header>
