@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Link from '../base/Link';
+import LinkBase from '../base/Link';
 import HeaderBase from '../base/Header';
 const logo = require('./easybib-logo.svg');
 
@@ -18,6 +18,10 @@ export const Logo = styled.img.attrs({
   display: flex;
   width: 112px;
   height: 42px;
+`;
+
+const Link = LinkBase.extend`
+  padding-right: 35px;
 `;
 
 export const Hamburger = styled.div`

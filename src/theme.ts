@@ -1,18 +1,21 @@
+import { injectGlobal } from 'styled-components';
+
 interface Theme {
-    colors: {
-        [key: string]: string;
+  colors: {
+    [key: string]: string;
+  };
+  sizing: {
+    [key: string]: string;
+  };
+  font: {
+    family: string;
+    weight: {
+      [key: string]: number;
     };
-    sizing: {
-        [key: string]: string;
+    sizes: {
+      [key: string]: string;
     };
-    font: {
-        weight: {
-          [key: string]: number;
-        }
-        sizes: {
-          [key: string]: string
-        }
-    };
+  };
 }
 
 export const baseTheme: Theme = {
@@ -27,6 +30,9 @@ export const baseTheme: Theme = {
   },
   // Example of standardizing sizing to align design and dev
   font: {
+    family:
+      // tslint:disable-next-line
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
     weight: {
       light: 300,
       regular: 400,
@@ -41,15 +47,30 @@ export const baseTheme: Theme = {
 };
 
 export const easybibTheme = {
-  ...baseTheme
+  ...baseTheme,
+  site: 'easybib'
 };
 
 export const bibmeTheme = {
-    ...baseTheme,
-    colors: {
-        ...baseTheme.colors,
-        blue: '#EBF7FE'
-    }
+  ...baseTheme,
+  site: 'bibme',
+  font: {
+    ...baseTheme.font,
+    family: '"Helvetica Neue", Helvetica, sans-serif'
+  },
+  colors: {
+    ...baseTheme.colors,
+    blue: '#1B3B54'
+  }
 };
 
-console.log(bibmeTheme);
+/**
+ * This is for things like font-family / Normalization
+ */
+
+// tslint:disable
+export const globalCss = () => injectGlobal`
+    html, body {
+        margin: 0;
+        padding: 0;
+`;
